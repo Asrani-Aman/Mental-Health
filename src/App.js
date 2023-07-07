@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Login from "./scenes/login/Login";
+import useLocalStorage from "./hooks/useLocalStorage";
 import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
@@ -20,7 +22,12 @@ import Calendar from "./scenes/calendar/calendar";
 function App() {
   const [theme, colorMode] = useMode();
   const [isSidebar, setIsSidebar] = useState(true);
+  const { value: id, setValue: setId } = useLocalStorage("userId");
+  const { value: token, setValue: setToken } = useLocalStorage("token");
 
+  if (!(token && id)) {
+    return <Login setToken={setToken} setId={setId} />;
+  }
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
