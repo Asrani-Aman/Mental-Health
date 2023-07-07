@@ -6,8 +6,8 @@ import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettin
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
-
-const Team = () => {
+import { Link } from "react-router-dom";
+const Category3 = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
@@ -36,7 +36,7 @@ const Team = () => {
       flex: 1,
     },
     {
-      field: "accessLevel",
+      field: "Fix An Appointment",
       headerName: "Access Level",
       flex: 1,
       renderCell: ({ row: { access } }) => {
@@ -48,19 +48,24 @@ const Team = () => {
             display="flex"
             justifyContent="center"
             backgroundColor={
-              access === "admin"
+              access === "Fix Appointment"
                 ? colors.greenAccent[600]
-                : access === "manager"
+                : access === "booked"
                 ? colors.greenAccent[700]
                 : colors.greenAccent[700]
             }
             borderRadius="4px"
           >
-            {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
+            {access === "Fix Appointment" && <AdminPanelSettingsOutlinedIcon />}
             {access === "manager" && <SecurityOutlinedIcon />}
             {access === "user" && <LockOpenOutlinedIcon />}
             <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
-              {access}
+              <Link
+                to="/form"
+                style={{ color: "white", textDecoration: "none" }}
+              >
+                {access}
+              </Link>
             </Typography>
           </Box>
         );
@@ -106,4 +111,4 @@ const Team = () => {
   );
 };
 
-export default Team;
+export default Category3;

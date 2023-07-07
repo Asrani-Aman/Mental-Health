@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Topbar from "./scenes/global/Topbar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
-import Team from "./scenes/team";
+import Category3 from "./scenes/Category3";
 import Invoices from "./scenes/invoices";
 import Category1 from "./scenes/category1";
 import Category2 from "./scenes/category2";
@@ -31,7 +31,7 @@ function App() {
             <Topbar setIsSidebar={setIsSidebar} />
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/team" element={<Team />} />
+              <Route path="/category3" element={<Category3 />} />
               <Route path="/category1" element={<Category1 />} />
               <Route path="/category2" element={<Category1 />} />
               <Route path="/invoices" element={<Invoices />} />
